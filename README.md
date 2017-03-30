@@ -19,6 +19,6 @@ Copy CurtineIncSw.vim into your ~/.vim/plugin directory. Or :source CurtineIncSw
 
 You can set a keyboard shortcut if you want by placing something like: 
 
-  map <F5> :call CurtineIncSw()<CR> 
+  map \<F5\> :call CurtineIncSw()\<CR\> 
 
 in your .vimrc 
