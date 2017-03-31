@@ -6,7 +6,9 @@ Some assumpions:
 
   filename for header and implementation is identical excluding the directory 
     and extension (foo.c -> foo.h supported, foo.c -> bar.h not supported) 
+  
   user opens files from base of repo 
+  
   repo contains both implementation and header files 
 
 Based on these assumptions, you don't need to reconfigure when you switch 
