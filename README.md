@@ -24,3 +24,6 @@ You can set a keyboard shortcut if you want by placing something like:
   map \<F5\> :call CurtineIncSw()\<CR\> 
 
 in your .vimrc 
+
+### Installing with Vundle
+Add `Plugin 'ericcurtin/CurtineIncSw.vim'` to your your plugin definitions in your `.vimrc`
