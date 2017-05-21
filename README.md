@@ -1,29 +1,32 @@
 # CurtineIncSw.vim
-Switch from \*.c\* to \*.h\* and vice versa
+Easily toggle between \*.c\* and \*.h\* buffers.
 
-## description
+## Description
 Some assumpions: 
 
-  filename for header and implementation is identical excluding the directory 
-    and extension (foo.c -> foo.h supported, foo.c -> bar.h not supported) 
-  
-  user opens files from base of repo 
-  
-  repo contains both implementation and header files 
+* The filenames of the header and body (implementation) are identical
+except for the extension or the directory.
+  - That is, `foo.c` -> `foo.h` is supported, 
+  - whereas  `foo.c` -> `bar.h` is not supported.
+* The user opens files from the base of the repository.
+* The repository contains both the header and body (implementation) files.
 
 Based on these assumptions, you don't need to reconfigure when you switch 
-between repos, provided the headers and implementation are all in the same repo. 
+between repositories, provided that the headers and bodies are all in the 
+same repository.
 
-https://github.com/ericcurtin/CurtineIncSw.vim 
- 
-## install details
-Copy CurtineIncSw.vim into your ~/.vim/plugin directory. Or :source CurtineIncSw.vim. 
+## Installation
+Copy `CurtineIncSw.vim` into your ~/.vim/plugin directory.
+Or `:source CurtineIncSw.vim` to load it into your running session.
 
 You can set a keyboard shortcut if you want by placing something like: 
-
-  map \<F5\> :call CurtineIncSw()\<CR\> 
-
-in your .vimrc 
+```
+  map \<F5\> :call CurtineIncSw()\<CR\>
+```
+in your `~/.vimrc` file.  Yes, the `<CR>` is literally there at the end
+as the four characters shown.
 
 ### Installing with Vundle
-Add `Plugin 'ericcurtin/CurtineIncSw.vim'` to your your plugin definitions in your `.vimrc`
+Add `Plugin 'ericcurtin/CurtineIncSw.vim'` to your your plugin definitions
+in your `.vimrc`
+
