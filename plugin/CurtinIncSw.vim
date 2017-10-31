@@ -1,6 +1,8 @@
 function! FindInc()
-  let cmd="find . -type f -iname " . t:IncSw . " | head -n1 | tr -d '\n'"
+  let dirname=fnamemodify(expand("%:p"), ":h")
+  let cmd="find . " . dirname . " -type f -iname " . t:IncSw . " | head -n1 | tr -d '\n'"
 
+  echo "cmd"
   let findRes=system(cmd)
 
   exe "e " findRes
