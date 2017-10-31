@@ -8,12 +8,13 @@ Some assumpions:
 except for the extension or the directory.
   - That is, `foo.c` -> `foo.h` is supported, 
   - whereas  `foo.c` -> `bar.h` is not supported.
-* The user opens files from the base of the repository.
+* The user opens files from the base of the repository. Or the other file is
+  somewhere within the directory of the file you are opening or it's
+  subdirectories.
 * The repository contains both the header and body (implementation) files.
 
-Based on these assumptions, you don't need to reconfigure when you switch 
-between repositories, provided that the headers and bodies are all in the 
-same repository.
+Based on these assumptions, you should not need to reconfigure when you switch 
+between repositories.
 
 ## Installation
 Copy `CurtineIncSw.vim` into your ~/.vim/plugin directory.
