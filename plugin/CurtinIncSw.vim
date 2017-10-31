@@ -1,21 +1,14 @@
 function! FindInc()
-  let oldPath=&path
-  set path=$PWD/**
-
   let cmd="find . -type f -iname " . t:IncSw . " | head -n1 | tr -d '\n'"
 
   let findRes=system(cmd)
 
   exe "e " findRes
-
-  let &path=oldPath
 endfun
 
 function! CurtineIncSw()
-
   if exists("t:IncSw")
     e#
-
     return 0
   endif
 
