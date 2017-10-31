@@ -2,29 +2,29 @@ function! FindInc()
   let oldPath=&path
   set path=$PWD/**
 
-  exe ":find " t:newIncSw
+  let cmd="find . -type f -iname " . t:IncSw . " | head -n1 | tr -d '\n'"
 
-"Will do this just in time when needed
-"  let t:newIncSw=expand('%:p')
+  let findRes=system(cmd)
+
+  exe "e " findRes
 
   let &path=oldPath
 endfun
 
 function! CurtineIncSw()
-  " Switch from *.c* to *.h* and vice versa
 
-  if exists("t:oldIncSw") && expand("%:t:r") == fnamemodify(t:oldIncSw, ":t:r")
-    let t:newIncSw=t:oldIncSw
-    let t:oldIncSw=expand("%:p")
-    exe "e " t:newIncSw
+  if exists("t:IncSw")
+    e#
+
     return 0
   endif
 
   if match(expand("%"), '\.c') > 0
-    let t:newIncSw=substitute(expand("%:t"), '\.c\(.*\)', '.h\1', "")
+    let t:IncSw=substitute(expand("%:t"), '\.c\(.*\)', '.h*', "")
   elseif match(expand("%"), "\\.h") > 0
-    let t:newIncSw=substitute(expand("%:t"), '\.h\(.*\)', '.c\1', "")
+    let t:IncSw=substitute(expand("%:t"), '\.h\(.*\)', '.c*', "")
   endif
 
   call FindInc()
 endfun
+
