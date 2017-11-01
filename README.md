@@ -2,7 +2,7 @@
 Easily toggle between \*.c\* and \*.h\* buffers.
 
 ## Description
-Some assumpions: 
+Some assumptions: 
 
 * The filenames of the header and body (implementation) are identical
 except for the extension or the directory.
