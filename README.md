@@ -1,4 +1,4 @@
-# CurtineIncSw.vim
+# CurtineIncSw.vim [![Build Status](https://travis-ci.org/ericcurtin/CurtineIncSw.vim.svg?branch=master)](https://travis-ci.org/ericcurtin/CurtineIncSw.vim)
 Easily toggle between \*.c\* and \*.h\* buffers.
 
 ## Description
