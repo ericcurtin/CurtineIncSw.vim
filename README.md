@@ -22,7 +22,7 @@ Or `:source CurtineIncSw.vim` to load it into your running session.
 
 You can set a keyboard shortcut if you want by placing something like: 
 ```
-  map \<F5\> :call CurtineIncSw()\<CR\>
+  map <F5> :call CurtineIncSw()<CR>
 ```
 in your `~/.vimrc` file.  Yes, the `<CR>` is literally there at the end
 as the four characters shown.
