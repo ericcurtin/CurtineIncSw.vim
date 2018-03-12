@@ -1,8 +1,14 @@
 function! FindInc()
   let dirname=fnamemodify(expand("%:p"), ":h")
-  let cmd="find . " . dirname . " -type f -iname " . t:IncSw . " | head -n1 | tr -d '\n'"
-
-  let findRes=system(cmd)
+  let findRes=""
+  let targetFile=t:IncSw
+  for location in [dirname, '.' ]
+    let cmd="find " . location . " -type f -iname " . targetFile . " -print -quit | tr -d '\n'"
+    let findRes=system(cmd)
+    if filereadable(findRes)
+      break
+    endif
+  endfor
 
   exe "e " findRes
 endfun
