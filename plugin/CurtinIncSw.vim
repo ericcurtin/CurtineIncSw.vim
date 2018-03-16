@@ -1,9 +1,9 @@
 function! FindInc()
   let dirname=fnamemodify(expand("%:p"), ":h")
   let findRes=""
-  let targetFile=t:IncSw
+  let targetFile=b:IncSw
   for location in [dirname, '.' ]
-    let cmd="find " . location . " -type f -iname " . targetFile . " -print -quit | tr -d '\n'"
+    let cmd="find " . location . " -type f -iname " . targetFile . " -print -quit"
     let findRes=system(cmd)
     if filereadable(findRes)
       break
@@ -14,10 +14,14 @@ function! FindInc()
 endfun
 
 function! CurtineIncSw()
+  if exists("b:IncSw")
+    e#
+    return 0
+  endif
   if match(expand("%"), '\.c') > 0
-    let t:IncSw=substitute(expand("%:t"), '\.c\(.*\)', '.h*', "")
+    let b:IncSw=substitute(expand("%:t"), '\.c\(.*\)', '.h*', "")
   elseif match(expand("%"), "\\.h") > 0
-    let t:IncSw=substitute(expand("%:t"), '\.h\(.*\)', '.c*', "")
+    let b:IncSw=substitute(expand("%:t"), '\.h\(.*\)', '.c*', "")
   endif
 
   call FindInc()
