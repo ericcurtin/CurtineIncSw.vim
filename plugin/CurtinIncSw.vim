@@ -1,7 +1,7 @@
 function! FindInc()
   let dirname=fnamemodify(expand("%:p"), ":h")
   let target_file=b:inc_sw
-  let cmd="find " . dirname . " . -type f -iname " . target_file . " -print -quit"
+  let cmd="find " . dirname . " . -type f -iname \"" . target_file . "\" -print -quit"
   let find_res=system(cmd)
   if filereadable(find_res)
     return 0
