@@ -17,13 +17,11 @@ function! CurtineIncSw()
   endif
   if match(expand("%"), '\.c') > 0
     let b:inc_sw=substitute(expand("%:t"), '\.c\(.*\)', '.h*', "")
+    call FindInc()
   elseif match(expand("%"), "\\.h") > 0
     let b:inc_sw=substitute(expand("%:t"), '\.h\(.*\)', '.c*', "")
-  " if the file is not .c or .h, just be silent
-  else
-    return 0
+    call FindInc()
   endif
 
-  call FindInc()
 endfun
 
