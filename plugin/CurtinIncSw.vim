@@ -11,10 +11,6 @@ function! FindInc()
 endfun
 
 function! CurtineIncSw()
-  if exists("b:inc_sw")
-    e#
-    return 0
-  endif
   if match(expand("%"), '\.c') > 0
     let b:inc_sw=substitute(expand("%:t"), '\.c\(.*\)', '.h*', "")
     call FindInc()
